@@ -118,9 +118,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     fingerprint_enabled=1
 
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
-
 # GPS
 PRODUCT_PACKAGES += \
     gps.apq8084
