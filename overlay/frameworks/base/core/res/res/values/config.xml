@@ -392,7 +392,6 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">83</integer>
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -406,7 +405,6 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareWakeKeys">65</integer>
 
     <bool name="config_enableWifiDisplay">true</bool>
 
@@ -415,10 +413,6 @@
 
     <!-- Device supports LED flashlight -->
     <!--bool name="config_enableTorch">true</bool-->
-
-    <!-- Performance profiles -->
-    <string name="config_perf_profile_prop">powerhal</string>
-    <string name="config_perf_profile_default_entry">1</string>
 
         <!-- Indicate whether closing the lid causes the device to go to sleep and opening
          it causes the device to wake up.
