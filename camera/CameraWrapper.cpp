@@ -97,6 +97,9 @@ static int check_vendor_module()
     return rv;
 }
 
+#define KEY_VIDEO_HFR_VALUES "video-hfr-values"
+#define KEY_VIDEO_FRAME_FORMAT "video-frame-format"
+
 static char *camera_fixup_getparams(int __attribute__((unused)) id,
     const char *settings)
 {
@@ -108,19 +111,19 @@ static char *camera_fixup_getparams(int __attribute__((unused)) id,
     params.dump();
 #endif
 
-    params.setPreviewFormat("yuv420sp");
-    params.set(android::CameraParameters::KEY_VIDEO_FRAME_FORMAT, "yuv420sp");
-
     /* If the vendor has HFR values but doesn't also expose that
      * this can be turned off, fixup the params to tell the Camera
      * that it really is okay to turn it off.
      */
 
-    const char *hfrValues = params.get(android::CameraParameters::KEY_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES);
+        params.setPreviewFormat("yuv420sp");
+        params.set(KEY_VIDEO_FRAME_FORMAT, "yuv420sp");
+
+    const char *hfrValues = params.get(KEY_VIDEO_HFR_VALUES);
     if (hfrValues && *hfrValues && ! strstr(hfrValues, "off")) {
         char tmp[strlen(hfrValues) + 4 + 1];
         sprintf(tmp, "%s,off", hfrValues);
-        params.set(android::CameraParameters::KEY_SUPPORTED_VIDEO_HIGH_FRAME_RATE_MODES, tmp);
+        params.set(KEY_VIDEO_HFR_VALUES, tmp);
     }
 
     android::String8 strParams = params.flatten();

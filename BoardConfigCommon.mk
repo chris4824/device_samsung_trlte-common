@@ -133,6 +133,7 @@ BOARD_SEPOLICY_UNION += \
     rild.te \
     system_app.te \
     system_server.te \
+    tee.te \
     time_daemon.te \
     ueventd.te \
     wpa.te \
